@@ -1,0 +1,146 @@
+@import '../components/guide_carousel/GuideCarousel';
+
+.iqs-home {
+    height: 100%;
+    background-color: #eeeeee;
+    .iqs-home-content {
+        padding-bottom: 46px;
+        .iqs-loader-container {
+            text-align: center;
+        }
+    }
+    .iqs-guide-carousel .iqs-guide-carousel-content .iqs-guide-carousel-slide .iqs-guide-carousel-slide-image img {
+        height: 140px;
+    }
+    .iqs-tiles-search-wrapper {
+        margin: 0 auto;
+        padding: 16px 8px 8px 8px;
+        position: relative;
+        md-autocomplete, md-autocomplete-wrap {
+            height: 48px;
+            border-radius: 4px;
+            input {
+                padding: 0px 0px 0px 48px;
+                height: 48px;
+            }
+        }
+        md-autocomplete.inactive {
+            background-color: #d8d8d8;
+            box-shadow: none;
+        }
+        .iqs-tiles-search-icon {
+            position: absolute;
+            left: 0px;
+            top: 16px;
+            z-index: 56;
+            line-height: 48px;
+            vertical-align: middle;
+            text-align: center;
+            padding: 12px;
+            margin: 0 6px;
+        }
+    }
+    .iqs-tiles-group.xs {
+        .iqs-tiles-group-name-wrapper {
+            margin: 0 auto;
+            padding-top: 0;
+            .iqs-tiles-group-name {
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.54);
+                padding: 16px 16px 0px 16px;
+            }
+        }
+        md-list {
+            padding: 0;
+        }
+        md-list-item {
+            padding: 16px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+            .md-button {
+                padding: 0;
+            }
+            .md-list-item-inner {
+                display: flex;
+                .app-icon {
+                    width: 40px;
+                    height: 40px;
+                    text-align: center;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                    md-icon {
+                        width: 24px;
+                        height: 24px;
+                        color: white;
+                    }
+                }
+                .iqs-tile-content {
+                    flex: 1;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                    .iqs-tile-content-name {
+                        font-size: 16px;
+                        color: #000000;
+                        line-height: normal;
+                    }
+                    .iqs-tile-content-description {
+                        padding-top: 8px;
+                        font-size: 12px;
+                        color: rgba(0, 0, 0, 0.54);
+                        line-height: normal;
+                    }
+                }
+                .fav-icon {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+    .iqs-tiles-group {
+        max-width: 1280px;
+        margin: 0 auto;
+        .iqs-tiles-group-name-wrapper {
+            .iqs-tiles-group-name {
+                font-size: 20px;
+                font-weight: 500;
+                color: rgba(0, 0, 0, 0.87);
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+        }
+        .pip-tiles {
+            padding-top: 16px;
+        }
+        .pip-tile {
+            max-width: 200px;
+            height: 180px;
+            background-color: #fafafa!important;
+            box-shadow: 0 0.5px 3px 0 rgba(0, 0, 0, 0.5)!important;
+            margin-bottom: 16px;
+            cursor: pointer;
+            .iqs-tile {
+                padding: 16px;
+                .iqs-tile-toolbar {
+                    display: flex;
+                    justify-content: space-between;
+                    .app-icon md-icon {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+                .iqs-tile-content {
+                    .iqs-tile-content-name {
+                        font-size: 16px;
+                        line-height: 1.5;
+                        padding-top: 8px;
+                    }
+                    .iqs-tile-content-description {
+                        font-size: 12px;
+                        padding-top: 8px;
+                        color: rgba(0, 0, 0, 0.54);
+                    }
+                }
+            }
+        }
+    }
+}
