@@ -1,4 +1,4 @@
-# iqs-clients2-home-app
+# iqs-clients-home-angular
 
 This project is **home** application for Positron.
 
