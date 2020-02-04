@@ -1,0 +1,43 @@
+<ng-container *ngFor="let group of groups; trackBy: trackByName">
+  <div *ngIf="group.applications?.length && !group.isHidden">
+    <div class="pip-tile-group-name" [ngStyle]="{'max-width.px': width || 'inherit'}">{{ group.name | translate }}</div>
+    <pip-tiles-layout *ngIf="!media.isMainActive('lt-sm')" [animation]="isAnimated" columnWidth="200" [stretch]="media.isMainActive('xs')"
+                      (resized)="onResize($event)">
+      <ng-container *ngFor="let app of group.applications; trackBy: trackById">
+        <div class="pip-tile" *ngIf="!app.isHidden" (click)="openApplication(app)">
+          <div class="pip-tile--inner">
+            <div class="pip-tile--inner__icons">
+              <mat-icon matListIcon *ngIf="isCustomIcon(app.icon)" class="pip-tile-icon-app mat-primary" [fontIcon]="app?.icon"></mat-icon>
+              <mat-icon matListIcon *ngIf="!isCustomIcon(app.icon)" class="pip-tile-icon-app mat-primary">
+                {{ app?.icon }}</mat-icon>
+
+              <button class="pip-tile-button-fav" mat-icon-button disableRipple>
+                <mat-icon fontSet="webui" fontIcon="{{app.isFavorite ? 'webui-star' : 'webui-star-white'}}"
+                          (click)="toggleFavorite($event, app)"></mat-icon>
+              </button>
+            </div>
+            <div class="pip-tile--inner__header">{{ app.name[language] }}</div>
+            <div class="pip-tile--inner__description">{{ app.description[language] }}</div>
+          </div>
+        </div>
+      </ng-container>
+    </pip-tiles-layout>
+    <mat-list *ngIf="media.isMainActive('lt-sm')">
+      <ng-container *ngFor="let app of group.applications; trackBy: trackById">
+        <mat-list-item *ngIf="!app.isHidden" (click)="openApplication(app)">
+          <mat-icon matListIcon *ngIf="isCustomIcon(app.icon)" class="pip-tile-icon-app mat-primary" [fontIcon]="app?.icon"></mat-icon>
+          <mat-icon matListIcon *ngIf="!isCustomIcon(app.icon)" class="pip-tile-icon-app mat-primary">
+            {{ app?.icon }}
+          </mat-icon>
+          <h4 matLine>{{ app.name[language] }}</h4>
+          <p matLine>{{ app.description[language] }}</p>
+          <button class="pip-tile-button-fav" mat-icon-button matSuffix disableRipple>
+            <mat-icon fontIcon="{{app.isFavorite ? 'webui-star' : 'webui-star-white'}}"
+                      (click)="toggleFavorite($event, app)"></mat-icon>
+          </button>
+
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </div>
+</ng-container>

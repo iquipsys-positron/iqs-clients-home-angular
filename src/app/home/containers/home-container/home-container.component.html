@@ -1,0 +1,16 @@
+<pip-scrollable fxFlex="fill">
+  <pip-scrollable-content *ngIf="(state$ | async) === 'progress'" fxFlex="fill" class="loader-wrapper">
+    <div class="loader"> <img src="assets/pre-loading.svg"> </div>
+  </pip-scrollable-content>
+  <pip-scrollable-content *ngIf="(state$ | async) === 'data'">
+    <pip-search-input>
+      <mat-form-field class="search-field" floatLabel="never" appearance="fill" [ngStyle.lt-sm]="{'max-width': 'inherit'}"
+                      [ngStyle]="{'max-width.px': width || 'inherit'}">
+        <mat-icon matPrefix fontIcon="webui-search"></mat-icon>
+        <input matInput placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}" name="search" (input)="search$.next($event.target.value)"
+               [formControl]="searchControl">
+      </mat-form-field>
+    </pip-search-input>
+    <iqs-applications fxLayout="column" [groups]="filteredGroups$ | async" [language]="language" (resized)="onResize($event)"></iqs-applications>
+  </pip-scrollable-content>
+</pip-scrollable>

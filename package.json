@@ -1,30 +1,65 @@
 {
-    "name": "iqs-clients-home-angular",
-    "version": "1.0.0",
-    "author": "iQuipsys Inc. <www.iquipsys.com>",
-    "description": "Home client microapplication for iQuipsys Positron in Angular",
-    "contributors": [
-        {
-            "name": "Sergey Seroukhov",
-            "email": "seroukhov@gmail.com"
-        },
-        {
-            "name": "Anastas Fonotov",
-            "email": "anastasf@gmail.com"
-        },
-        {
-            "name": "Koshevierov Aleksandr",
-            "email": "iworb.ne@gmail.com"
-        }
-    ],
-    "keywords": [
-        "iquipsys",
-        "positron",
-        "home"
-    ],
-    "noAnalyze": true,
-    "license": "MIT",
-    "private": false,
-    "dependencies": {},
-    "devDependencies": {}
+  "name": "iqs-clients-home-angular",
+  "version": "1.0.2",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start:mock": "ng serve --configuration=mock",
+    "start:stage": "ng serve --configuration=stage",
+    "start:prod": "ng serve --configuration=production",
+    "build": "ng build && node post-build.js",
+    "build:mock": "ng build --configuration=mock && node post-build.js",
+    "build:stage": "ng build --configuration=stage && node post-build.js",
+    "build:prod": "ng build --configuration=production && node post-build.js",
+    "test": "ng test",
+    "test:ci": "ng test --browsers ChromeHeadlessCI --watch=false",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "publish:stage": "aws s3 sync ./dist/iqs-clients-home-angular s3://www.positron.stage.iquipsys.net/home --delete"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~7.2.1",
+    "@angular/cdk": "^7.2.1",
+    "@angular/common": "~7.2.1",
+    "@angular/compiler": "~7.2.1",
+    "@angular/core": "~7.2.1",
+    "@angular/flex-layout": "^7.0.0-beta.23",
+    "@angular/forms": "~7.2.1",
+    "@angular/http": "~7.2.1",
+    "@angular/material": "^7.2.1",
+    "@angular/platform-browser": "~7.2.1",
+    "@angular/platform-browser-dynamic": "~7.2.1",
+    "@angular/router": "~7.2.1",
+    "@ngrx/store-devtools": "^7.0.0",
+    "core-js": "^2.6.2",
+    "iqs-libs-clientshell2-angular": "file:../iqs-libs-clientshell2-angular/dist/iqs-libs-clientshell2-angular/iqs-libs-clientshell2-angular-2.0.0.tgz",
+    "pip-webui2-controls": "^1.1.8",
+    "pip-webui2-layouts": "^1.1.10",
+    "pip-webui2-themes": "^1.1.11",
+    "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.28"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.12.4",
+    "@angular/cli": "~7.2.2",
+    "@angular/compiler-cli": "~7.2.1",
+    "@angular/language-service": "~7.2.1",
+    "@types/jasmine": "~3.3.5",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~10.12.18",
+    "codelyzer": "~4.5.0",
+    "jasmine-core": "~3.3.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~3.1.4",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "protractor": "~5.4.2",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.12.1",
+    "typescript": "3.2.2"
+  }
 }

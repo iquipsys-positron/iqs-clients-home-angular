@@ -1,0 +1,131 @@
+@import '~pip-webui2-themes/variables';
+:host {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.pip-tile-group-name {
+    margin-top: 24px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin: 0 auto;
+}
+
+/deep/ .pip-main-lt-sm .pip-tile-group-name {
+    max-width: inherit !important;
+    padding: 16px 16px 0px 16px;
+    font-size: 14px;
+}
+
+.pip-tile {
+    width: 200px;
+    height: 180px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    box-shadow: 0 0.5px 3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    &--inner {
+        padding: 16px;
+        &__icons {
+            display: flex;
+            justify-content: space-between;
+            .pip-tile-icon-app {
+                width: 36px;
+                height: 36px;
+                font-size: 36px;
+            }
+            .pip-tile-button-fav {
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                mat-icon {
+                    font-size: 24px;
+                }
+            }
+        }
+        &__header {
+            margin: 8px 0;
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: rgba(0, 0, 0, 0.87);
+        }
+        &__description {
+            font-family: Roboto;
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: rgba(0, 0, 0, 0.54);
+        }
+    }
+}
+
+:host mat-list mat-list-item {
+    height: auto !important;
+    /deep/ .mat-list-item-content {
+        height: auto;
+        padding: 16px;
+        .mat-list-text p.mat-line {
+            white-space: initial !important;
+            padding-top: 8px;
+            font-size: 12px !important;
+        }
+    }
+}
+
+@mixin home-apps($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $primary: map-get($theme, primary);
+    :host mat-list .pip-tile-icon-app.mat-primary {
+        background-color: mat-color($primary);
+        color: mat-color($background, card) !important;
+        padding: 8px;
+    }
+    :host mat-list .pip-tile-button-fav mat-icon {
+        margin-left: 8px;
+        color: mat-color($foreground, text, 0.54);
+    }
+    :host mat-list /deep/ .mat-list-item-content {
+        border-bottom: 2px solid mat-color($foreground, text, 0.12);
+        .mat-list-text p.mat-line {
+            color: mat-color($foreground, text, 0.54);
+        }
+    }
+    .pip-tile-group-name {
+        color: mat-color($foreground, text, 0.87);
+    }
+}
+
+@mixin home-apps-lt-sm($theme) {
+    $foreground: map-get($theme, foreground);
+    .pip-tile-group-name {
+        color: mat-color($foreground, text, 0.54);
+    }
+}
+
+@each $class, $theme in $themes {
+    .#{$class} {
+        @include home-apps($theme);
+    }
+}
+
+/deep/ .pip-main-lt-sm {
+    @each $class, $theme in $themes {
+        &.#{$class} {
+            @include home-apps-lt-sm($theme);
+        }
+    }
+}

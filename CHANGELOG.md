@@ -1,15 +1,22 @@
-# Pip.WebUI.Documents Changelog
+## <a name="1.0.2"></a> 1.0.2 (2019-01-17)
 
-## <a name="1.0.0"></a> 1.0.0 (2016-07-30)
+Updated for latest version of shell.
 
-Initial release with document list view and list edit controls
+#### Breaking Changes
+Most of files has been updated a bit.
 
-### Features
+#### Bug Fixes
+Fix styles issues and application behavior at all
 
-* **documents list**: document list view and edit controls
+## <a name="1.0.0"></a> 1.0.0 (2018-12-17)
 
-### Breaking Changes
+Initial version
+
+#### Features
+* **home** - components for home page;
+
+#### Breaking Changes
 No breaking changes in this version
 
-### Bug Fixes
-No fixes in this version
+#### Bug Fixes
+No bug fixes changes in this version

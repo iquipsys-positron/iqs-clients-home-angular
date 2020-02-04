@@ -1,0 +1,68 @@
+@import '~pip-webui2-themes/variables';
+:host {
+    flex: 1 1 100%;
+}
+
+mat-form-field.search-field {
+    max-width: 1280px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+/deep/ .pip-main-lt-sm {
+    iqs-home-container mat-form-field.search-field {
+        max-width: inherit !important;
+        padding: 16px;
+        .mat-form-field-wrapper {
+            height: 48px;
+        }
+    }
+}
+
+.loader-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.loader {
+    margin: 0 auto 1em;
+}
+
+@mixin home-mixin($theme) {
+    $isDark: map-get($theme, is-dark);
+    :host {
+        @if $isDark==false {
+            background-color: #eee;
+        }
+        @if $isDark==true {
+            background-color: #111;
+        }
+    }
+}
+
+@mixin snackbar-mixin($theme) {
+    $warn: map-get($theme, warn);
+    .pip-error-snackbar {
+        background-color: mat-color($warn);
+        min-width: 0;
+        font-weight: 800;
+        .mat-simple-snackbar-action {
+            display: none;
+        }
+    }
+}
+
+@each $class,$theme in $themes {
+    .#{$class} {
+        @include home-mixin($theme);
+        // @include home-search-input-mixin($theme);
+    }
+}
+
+@each $class,$theme in $themes {
+    /deep/ .#{$class} {
+        @include snackbar-mixin($theme);
+    }
+}

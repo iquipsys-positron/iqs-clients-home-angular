@@ -1,6 +1,17 @@
-# <img src="https://github.com/pip-webui/pip-webui/raw/master/doc/Logo.png" alt="Pip.WebUI Logo" style="max-width:30%"> <br/> iqs client positron
+# iqs-clients2-home-app
 
-![](https://img.shields.io/badge/license-MIT-blue.svg)
+This project is **home** application for Positron.
 
+## `home` feature
 
-This module is released under [MIT license](License) and totally free for commercial and non-commercial use.
+Available components:
+
+|component|description|
+|---|---|
+|`iqs-applications`|list of applications<br>`@Input`'s:<ul><li>groups: ApplicationGroup[] - groups of applications;</li><li>language - current language.</li></ul>`@Output`'s:<ul><li>resized - fired when tile layout resized.</li></ul>|
+
+Available containers:
+
+|container|description|
+|---|---|
+|`iqs-home-container`|main container, includes search input and applications list|
