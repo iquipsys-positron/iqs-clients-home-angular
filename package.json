@@ -33,7 +33,7 @@
     "@angular/router": "~7.2.1",
     "@ngrx/store-devtools": "^7.0.0",
     "core-js": "^2.6.2",
-    "iqs-libs-clientshell2-angular": "next",
+    "iqs-libs-clientshell2-angular": "^2.0.3",
     "pip-webui2-controls": "^1.1.8",
     "pip-webui2-layouts": "^1.1.10",
     "pip-webui2-themes": "^1.1.11",
