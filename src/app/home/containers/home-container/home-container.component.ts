@@ -55,7 +55,7 @@ export class HomeContainerComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.applicationsService.init();
+        // this.applicationsService.init();
         this.filteredGroups$ = combineLatest(
             this.applicationsService.groups$,
             this.search$
